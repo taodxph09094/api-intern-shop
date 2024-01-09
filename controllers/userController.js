@@ -43,7 +43,7 @@ exports.loginUser = catchAsyncErrors(async (req, res, next) => {
   const isPasswordMatched = await user.comparePassword(password);
 
   if (!isPasswordMatched) {
-    return next(new ErrorHander("Sai Email hoặc mật khẩu", 401));
+    return next(new ErrorHander("Sai Email hoặc mật khẩu", 400));
   }
 
   sendToken(user, 200, res);
