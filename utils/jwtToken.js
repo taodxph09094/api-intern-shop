@@ -1,5 +1,3 @@
-// Create Token and saving in cookie
-
 const sendToken = (user, statusCode, res) => {
   const token = user.getJWTToken();
 
@@ -13,8 +11,11 @@ const sendToken = (user, statusCode, res) => {
 
   res.status(statusCode).cookie("token", token, options).json({
     status: true,
-    user,
-    token,
+    message: "Đăng nhập thành công",
+    data: {
+      user,
+      token,
+    },
   });
 };
 
