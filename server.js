@@ -32,6 +32,11 @@ connectDB();
 // Enable CORS for all routes
 app.use(cors());
 
+// Define a simple route
+app.get("/", (req, res) => {
+  res.send("Hello World!");
+});
+
 app.use(express.urlencoded({ limit: "50mb", extended: true }));
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ limit: "50mb", extended: true }));
