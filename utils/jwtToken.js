@@ -1,4 +1,4 @@
-const sendToken = (user, statusCode, res) => {
+const sendToken = (user, statusCode, res, type) => {
   const token = user.getJWTToken();
 
   // options for cookie
@@ -9,14 +9,22 @@ const sendToken = (user, statusCode, res) => {
     httpOnly: true,
   };
 
-  res.status(statusCode).cookie("token", token, options).json({
-    status: true,
-    message: "Đăng nhập thành công",
-    data: {
-      user,
-      token,
-    },
-  });
+  res
+    .status(statusCode)
+    .cookie("token", token, options)
+    .json({
+      status: statusCode === 200 || statusCode === 201 ? true : false,
+      message:
+        statusCode === 200 || statusCode === 201
+          ? type === "login"
+            ? "Đăng nhập thành công"
+            : "Đăng ký thành công"
+          : "Đã có lỗi xảy ra",
+      data: {
+        user,
+        token,
+      },
+    });
 };
 
 module.exports = sendToken;

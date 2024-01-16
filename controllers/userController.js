@@ -21,7 +21,7 @@ exports.registerUser = catchAsyncErrors(async (req, res, next) => {
     },
   });
 
-  sendToken(user, 201, res);
+  sendToken(user, 201, res, "res");
 });
 
 // Login User
@@ -46,7 +46,7 @@ exports.loginUser = catchAsyncErrors(async (req, res, next) => {
     return next(new ErrorHander("Sai Email hoặc mật khẩu", 400));
   }
 
-  sendToken(user, 200, res);
+  sendToken(user, 200, res, 'login');
 });
 
 // Logout User
