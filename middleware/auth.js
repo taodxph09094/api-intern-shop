@@ -4,11 +4,12 @@ const jwt = require("jsonwebtoken");
 const User = require("../models/userModel");
 
 exports.isAuthenticatedUser = catchAsyncErrors(async (req, res, next) => {
-  const { token } = req.cookies;
+  const { authorization } = req.headers;
 
-  if (!token) {
+  if (!authorization || !authorization.startsWith("Bearer")) {
     return next(new ErrorHander("Vui lòng đăng nhập để thực hiện", 401));
   }
+  const token = authorization.split(" ")[1];
 
   const decodedData = jwt.verify(token, process.env.JWT_SECRET);
 
