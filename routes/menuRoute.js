@@ -157,7 +157,7 @@ router.route("/menu/all").get(getAllMenu);
 /**
  * @swagger
  * /admin/menu/edit/:id:
- *   post:
+ *   put:
  *     tags: [Menu]
  *     summary: Chỉnh sửa menu
  *     security:
