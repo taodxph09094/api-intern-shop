@@ -37,6 +37,7 @@ const router = express.Router();
  *               - isChildren
  *               - children
  *               - status
+ *               - isShow
  *             properties:
  *               name:
  *                 type: string
@@ -45,6 +46,8 @@ const router = express.Router();
  *               icon:
  *                 type: string
  *               status:
+ *                 type: boolean
+ *               isShow:
  *                 type: boolean
  *               isChildren:
  *                 type: boolean
@@ -58,6 +61,7 @@ const router = express.Router();
  *                     - path
  *                     - icon
  *                     - status
+ *                     - isShow
  *                   properties:
  *                     name:
  *                       type: string
@@ -66,6 +70,8 @@ const router = express.Router();
  *                     icon:
  *                       type: string
  *                     status:
+ *                       type: boolean
+ *                     isShow:
  *                       type: boolean
  *     responses:
  *       200:
@@ -126,7 +132,7 @@ router.route("/admin/menu/all").get(isAuthenticatedUser, authorizeRoles("admin")
 
 /**
  * @swagger
- * /menu/all:
+ * /admin/menu/all:
  *   get:
  *     tags: [Menu]
  *     summary: Danh sách menu
@@ -182,6 +188,7 @@ router.route("/menu/all").get(getAllMenu);
  *               - icon
  *               - children
  *               - status
+ *               - isShow
  *             properties:
  *               name:
  *                 type: string
@@ -190,6 +197,8 @@ router.route("/menu/all").get(getAllMenu);
  *               icon:
  *                 type: string
  *               status:
+ *                 type: boolean
+ *               isShow:
  *                 type: boolean
  *               isChildren:
  *                 type: boolean
@@ -203,6 +212,7 @@ router.route("/menu/all").get(getAllMenu);
  *                     - path
  *                     - icon
  *                     - status
+ *                     - isShow
  *                   properties:
  *                     name:
  *                       type: string
@@ -211,6 +221,8 @@ router.route("/menu/all").get(getAllMenu);
  *                     icon:
  *                       type: string
  *                     status:
+ *                       type: boolean
+ *                     isShow:
  *                       type: boolean
  *     responses:
  *       200:

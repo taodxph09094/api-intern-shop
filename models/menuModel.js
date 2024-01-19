@@ -16,6 +16,10 @@ const menuSchema = new mongoose.Schema({
     required: [true, "Chọn icon"],
     trim: true,
   },
+  isShow: {
+    type: Boolean,
+    default: false,
+  },
   isChildren: {
     type: Boolean,
     default: false,
@@ -38,13 +42,21 @@ const menuSchema = new mongoose.Schema({
           required: [true, "Chọn icon"],
           trim: true,
         },
+        isShow: {
+          type: Boolean,
+          default: false,
+        },
+        status: {
+          type: Boolean,
+          default: true,
+        },
       },
     ],
     default: null,
   },
   status: {
     type: Boolean,
-    default: false,
+    default: true,
   },
 });
 

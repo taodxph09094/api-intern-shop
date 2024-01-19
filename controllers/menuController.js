@@ -5,13 +5,7 @@ const responseData = require("../utils/responseData");
 
 exports.createMenu = catchAsyncErrors(async (req, res, next) => {
   try {
-    const { name, path, icon, children } = req.body;
-    const menu = await Menu.create({
-      name,
-      path,
-      icon,
-      children,
-    });
+    const menu = await Menu.create();
     responseData(menu, 200, "Tạo menu mới thành công", res);
   } catch (error) {
     return next(new ErrorHander(error.message, 500));
@@ -31,6 +25,7 @@ exports.updateMenu = catchAsyncErrors(async (req, res, next) => {
     status: req.body.status,
     isChildren: req.body.isChildren,
     children: req.body.children,
+    isShow: req.body.isShow,
   };
   const menu = await Menu.findByIdAndUpdate(req.params.id, newData, {
     new: true,

@@ -137,10 +137,11 @@ exports.updateProfile = catchAsyncErrors(async (req, res, next) => {
 exports.getAllUser = catchAsyncErrors(async (req, res, next) => {
   const users = await User.find();
 
-  res.status(200).json({
-    success: true,
-    users,
-  });
+  responseData(users, 200, null, res);
+  // res.status(200).json({
+  //   success: true,
+  //   users,
+  // });
 });
 
 // Get single user (admin)
