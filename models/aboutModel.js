@@ -4,6 +4,9 @@ const aboutSchema = new mongoose.Schema({
   text: {
     type: String,
   },
+  text2: {
+    type: String,
+  },
   status: {
     type: Boolean,
     default: true,
