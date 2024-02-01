@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const productTypeSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: [true, "Nhập tên hãng"],
+    required: [true, "Nhập tên loại sản phẩm"],
     trim: true,
   },
   status: {

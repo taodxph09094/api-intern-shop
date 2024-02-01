@@ -6,7 +6,7 @@ const {
   updateCategories,
   deleteCategories,
 } = require("../controllers/categoriesController");
-
+const router = express.Router();
 /**
  * @swagger
  * /admin/categories/create:
@@ -24,8 +24,6 @@ const {
  *             properties:
  *               name:
  *                 type: string
- *               status:
- *                 type: boolean
  *     responses:
  *       200:
  *         description: Danh mục được tạo thành công
@@ -116,4 +114,3 @@ router
   .route("/admin/categories/delete/:id")
   .delete(isAuthenticatedUser, authorizeRoles("admin"), deleteCategories);
 module.exports = router;
-const router = express.Router();

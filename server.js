@@ -50,10 +50,14 @@ app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 const user = require("./routes/userRoute");
 const menu = require("./routes/menuRoute");
 const productType = require("./routes/productTypeRoute");
+const categories = require("./routes/categoriesRoute");
+const brand = require("./routes/brandRoute");
 
 app.use("/api/v1", menu);
 app.use("/api/v1", user);
 app.use("/api/v1", productType);
+app.use("/api/v1", categories);
+app.use("/api/v1", brand);
 // app.use()
 // Middleware for Errors
 app.use(errorMiddleware);
