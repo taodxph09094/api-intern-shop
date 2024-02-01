@@ -47,7 +47,7 @@ exports.loginUser = catchAsyncErrors(async (req, res, next) => {
     return next(new ErrorHander("Sai Email hoặc mật khẩu", 400));
   }
 
-  sendToken(user, 200, res, 'login');
+  sendToken(user, 200, res, "login");
 });
 
 // Logout User
@@ -194,7 +194,7 @@ exports.deleteUser = catchAsyncErrors(async (req, res, next) => {
 
   await cloudinary.v2.uploader.destroy(imageId);
 
-  await user.deleteOne()
+  await user.deleteOne();
 
   res.status(200).json({
     success: true,

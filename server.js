@@ -49,9 +49,11 @@ app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 // Route Imports
 const user = require("./routes/userRoute");
 const menu = require("./routes/menuRoute");
+const productType = require("./routes/productTypeRoute");
 
 app.use("/api/v1", menu);
 app.use("/api/v1", user);
+app.use("/api/v1", productType);
 // app.use()
 // Middleware for Errors
 app.use(errorMiddleware);

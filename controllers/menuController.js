@@ -5,7 +5,8 @@ const responseData = require("../utils/responseData");
 
 exports.createMenu = catchAsyncErrors(async (req, res, next) => {
   try {
-    const menu = await Menu.create();
+    req.body.user = req.user.id;
+    const menu = await Menu.create(req.body);
     responseData(menu, 200, "Tạo menu mới thành công", res);
   } catch (error) {
     return next(new ErrorHander(error.message, 500));
